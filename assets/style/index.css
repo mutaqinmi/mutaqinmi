@@ -1,0 +1,592 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: Montserrat Thin;
+    src: url(../font/Montserrat-Thin.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+.floating-window {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme {
+    width: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.theme-image {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#theme-input {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    z-index: 1001;
+    opacity: 0;
+}
+
+.white-grey {
+    background-color: #fafafa !important;
+    color: #000 !important;
+}
+
+.white {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.dark-grey {
+    background-color: #121212 !important;
+    color: #fff !important;
+}
+
+.dark {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.title-h2-dark {
+    color: #000;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #000;
+    display: inline-block;
+}
+
+.title-h2-white {
+    color: #fff;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #fff;
+    display: inline-block;
+}
+
+.title-h1-dark {
+    color: #000;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #000;
+    display: inline-block;
+}
+
+.title-h1-white {
+    color: #fff;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #fff;
+    display: inline-block;
+}
+
+.thin {
+    font-family: Montserrat Thin;
+}
+
+.btn-white {
+    color: #fff;
+    padding: .5rem;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    text-decoration: none;
+    transition: background-color .2s ease-in-out;
+}
+
+.btn-dark {
+    color: #000;
+    padding: .5rem;
+    border-radius: 3px;
+    border: 1px solid #000;
+    text-decoration: none;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+.btn-white:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.soc-title {
+    margin-top: .5rem;
+}
+
+.p-h2 {
+    margin-top: 1rem;
+}
+
+/* general */
+
+.nav-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar {
+    width: 95%;
+    display: grid;
+    grid-template-areas: "brand menu" "link link";
+    align-items: center;
+    padding: 1rem .5rem 1rem .5rem;
+    margin: auto;
+}
+
+.navbar > .brand {
+    grid-area: brand;
+    align-self: center;
+}
+
+.navbar > .brand > a {
+    display: inline-block;
+}
+
+.navbar > .brand > a > img {
+    height: 2.5rem;
+}
+
+#check-menu {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    opacity: 0;
+    top: .8rem;
+    right: .8rem;
+    z-index: 999;
+}
+
+.menubtn {
+    grid-area: menu;
+    width: 2rem;
+    height: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-self: end;
+}
+
+.garis1,
+.garis2,
+.garis3 {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: .25rem;
+}
+
+.menu {
+    grid-area: link;
+    margin-top: .5rem;
+    display: none;
+}
+
+.menu > ul {
+    list-style-type: none;
+}
+
+.menu > ul > li > .navlink {
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: .5rem;
+    text-align: center;
+    border-radius: 2rem;
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    transition: border-bottom .2s ease-in-out;
+    margin: .5rem 0rem .5rem 0rem;
+    transition: background-color .2s ease, color .2s ease;
+    cursor: pointer;
+}
+
+.menu > ul > li > .navlink:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.head-wrapper {
+    width: 100%;
+    height: 45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-wrapper {
+    align-self: end;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed #fff;
+    padding: 1.5rem;
+    margin-left: 1rem;
+}
+
+.circle {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle > img {
+    width: 16rem;
+}
+
+.about {
+    align-self: start;
+    width: 90%;
+    margin-bottom: 1rem;
+}
+
+.about > * {
+    text-align: start;
+}
+
+.about > p {
+    margin-top: 1rem;
+}
+
+.social-media-wrapper {
+    width: 100%;
+    height: 8rem;
+    position: absolute;
+    margin-top: -4rem;
+}
+
+.social-media {
+    width: 80%;
+    height: 90%;
+    margin: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+}
+
+.social-media > * {
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform .2s ease-in-out;
+    padding: .5rem;
+}
+
+.whatsapp:hover,
+.instagram:hover,
+.github:hover,
+.email:hover{
+    transform: scale(1.1);
+}
+
+.web-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.web {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.see-project {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.see-project:hover {
+    transform: translate(-.4rem, -.4rem);
+    box-shadow: .4rem .4rem 0px grey;
+}
+
+.illustration {
+    border-radius: 1rem;
+    width: 100%;
+    height: 12rem;
+}
+
+.btn-project {
+    float: right;
+    margin: 1rem 0rem 0rem 0rem;
+}
+
+.last-project {
+    padding-bottom: 5rem;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.school-wrapper {
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.school-carousel {
+    width: 80%;
+    height: auto;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+    border-radius: 1rem;
+    scroll-snap-stop: always;
+    margin-top: 2rem;
+    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.school-carousel:hover {
+    transform: translateY(-.5rem);
+    box-shadow: 0rem .5rem 0px grey;
+}
+
+.school-carousel > * {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.school-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.school-logo {
+    width: 5rem;
+}
+
+.school-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-school {
+    margin-top: 2rem;
+}
+
+.portfolio-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0rem 2rem 0rem;
+}
+
+.portfolio {
+    width: 80%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.portfolio > * {
+    height: auto;
+    padding: 1rem;
+    text-align: end;
+    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.portfolio > div:hover {
+    transform: translate(-.5rem, -.5rem);
+    box-shadow: .5rem .5rem 0px grey;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 10rem;
+}
+
+@media only screen and (min-width: 768px){
+    .nav-wrap {
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar {
+        width: 60%;
+        grid-template-areas: "brand menu link";
+    }
+
+    .menubtn {
+        display: none;
+    }
+
+    .menu {
+        display: block !important;
+        justify-self: end;
+        margin-top: 0;
+    }
+
+    .menu > ul > li {
+        display: inline-block;
+    }
+
+    .menu > ul > li > .navlink {
+        border-radius: 0rem;
+        color: #fff;
+        margin: 0rem 1rem 0rem 1rem;
+        width: auto;
+        display: inline-block;
+        transition: border-bottom .2s ease-in-out;
+    }
+
+    .menu > ul > li > .navlink:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: #fff;
+        border-bottom: 3px solid #fff;
+    }
+    
+    .head-wrapper {
+        height: 40rem;
+    }
+    
+    .head {
+        width: 60%;
+        flex-direction: row;
+    }
+    
+    .social-media {
+        width: 60%;
+    }
+    
+    .about {
+        margin-bottom: 0rem;
+    }
+    
+    .web-wrapper {
+        margin-top: -1px;
+    }
+    
+    .web {
+        width: 60%;
+        flex-direction: row;
+    }
+    
+    .reverse {
+        flex-direction: row-reverse !important;
+    }
+    
+    .see-project {
+        width: auto;
+        height: auto;
+        margin-left: 2rem;
+    }
+    
+    .reverse-project {
+        margin-left: 0rem !important;
+        margin-right: 2rem;
+    }
+    
+    .last-project {
+        padding-bottom: 5rem;
+    }
+    
+    .illustration {
+        width: 14rem;
+        height: 12rem;
+    }
+    
+    .connector {
+        width: 100%;
+        height: 1rem;
+        position: absolute;
+        margin-top: -.5rem;
+    }
+    
+    .school-carousel {
+        width: 60%;
+    }
+    
+    .portfolio {
+        width: 60%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .school-carousel::-webkit-scrollbar {
+        display: none;
+    }
+}
