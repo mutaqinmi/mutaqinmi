@@ -1,0 +1,148 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("../font/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: Montserrat Black;
+    src: url("../font/Montserrat-Bold.ttf");
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+a {
+    color: #fff;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.container > .profile-image {
+    margin-top: 2rem;
+}
+
+.container > .profile-image > img {
+    width: 15rem;
+    border-radius: 100%;
+}
+
+.container > .title {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container > .title > h1 {
+    font-family: Montserrat Black;
+    font-size: 2.25rem;
+}
+
+.container > .title > .social-media {
+    width: 8rem;
+    height: 2rem;
+    background-color: #000;
+    margin-top: .5rem;
+    border-radius: 10px;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container > .title > .social-media > a > img {
+    width: 1rem;
+    transition: transform .2s ease-in-out;
+}
+
+.container > .title > .social-media > a > img:hover {
+    transform: scale(1.25);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+}
+
+footer > span {
+    font-size: 12px;
+}
+
+@media only screen and (min-width: 1440px){
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        text-align: left;
+        justify-content: space-around;
+        padding: 13rem;
+    }
+    
+    .container > .profile-image {
+        margin-top: 0rem;
+    }
+    
+    .container > .profile-image > img {
+        width: 25rem;
+        border-radius: 100%;
+    }
+    
+    .container > .title {
+        margin-top: 0rem;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 50%;
+    }
+    
+    .container > .title > h1 {
+        font-family: Montserrat Black;
+        font-size: 3.5rem;
+    }
+    
+    .container > .title > .social-media {
+        width: 12rem;
+        height: 3rem;
+        background-color: #000;
+        margin-top: .5rem;
+        border-radius: 15px;
+        padding: .5rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .container > .title > .social-media > a > img {
+        width: 1.25rem;
+        transition: transform .2s ease-in-out;
+    }
+    
+    .container > .title > .social-media > a > img:hover {
+        transform: scale(1.25);
+    }
+}
