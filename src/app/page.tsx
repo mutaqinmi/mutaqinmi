@@ -1,113 +1,205 @@
-import Image from "next/image";
+'use client'
+import { anton, windsong } from './fonts';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { InstagramLogo, Envelope, GithubLogo, ArrowRight, WhatsappLogo } from '@phosphor-icons/react';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+export default function Page(){
+    return <>
+        <Sidenav/>
+        <About/>
+        <Portfolio/>
+        <Skills/>
+        <Contact/>
+    </>
+}
+
+function About(){
+    return <div className="h-screen pl-16 flex w-full snap-start snap-always">
+        <div className='h-screen w-auto aspect-square object-cover flex items-center justify-center relative'>
+            <Image src="/image-header.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-5/6 w-80 aspect-square object-cover rounded-full'/>
+            <div className='h-32 w-32 absolute rounded-full bg-orange-200 top-8 left-40'></div>
+            <div className='h-52 w-52 absolute rounded-full bg-slate-300 bottom-12 right-12'></div>
         </div>
-      </div>
+        <div className='relative pr-16 w-full'>
+            <h1 className={`absolute bottom-28 -right-12 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>About</h1>
+            <div className='-ml-24 mt-20 w-full'>
+                <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Hi, Everyone! I'm</h2>
+                <h1 className='text-6xl font-bold mt-2'>Muhammad Ilham Mutaqin</h1>
+                <div className='border-b-8 border-orange-500 w-40 mt-8'></div>
+            </div>
+            <div className='ml-24 mt-20'>
+                <h3 className='uppercase tracking-widest tracking font-semibold text-orange-500'>Introducing</h3>
+                <p className='mt-10'>Proficient in developing websites and Android applications. Also, interested in the world of game development and design.</p>
+                <div className='mt-8 flex items-center gap-5'>
+                    <button className='border-black rounded-md px-4 py-2 tracking-wider transition ease-in-out hover:bg-black hover:text-white duration-300' style={{border: "1px solid"}}>Download CV</button>
+                    <div className='border-black h-6' style={{borderLeft: ".5px solid"}}></div>
+                    <div className='flex gap-5'>
+                        <InstagramLogo size={30} weight='light' className='transition ease-in-out hover:scale-110 duration-300' onClick={() => {location.href = 'https://instagram.com/mutaqinmi'}}/>
+                        <Envelope size={30} weight='light' className='transition ease-in-out hover:scale-110 duration-300' onClick={() => {location.href = 'mailto:mutaqinmi2586@gmail.com'}}/>
+                        <GithubLogo size={30} weight='light' className='transition ease-in-out hover:scale-110 duration-300' onClick={() => {location.href = 'https://github.com/mutaqinmi'}}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+function Portfolio(){
+    const [index, setIndex] = useState(0);
+    const description = () => {
+        if(index === 0){
+            return <span>eSPW, is a full android application, web and API. This application provides services for buying and selling student-made products that are sold at school.</span>
+        } else if (index === 1){
+            return <span>Xpens, is an application UI design for managing finances. This application has features such as income and expense reports, transaction history, and financial plans.</span>
+        } else if (index === 2){
+            return <span>Aplikasi Pembayaran SPP, is a desktop application for financial payments in schools. This application is just like any other payment application, which is to manage students who have paid or not.</span>
+        } else {
+            return <span>Aplikasi Peminjaman Alat, is a web application to record tools that will be borrowed by students such as laptops or other warehouse equipment.</span>
+        }
+    }
+    const source = () => {
+        if(index === 0){
+            return 'https://github.com/mutaqinmi/e-spw'
+        } else if (index === 1){
+            return 'https://www.figma.com/design/yp5fWFsOisWNlTJCoobFln/Xpens?t=MRBduvAFi7dRoeuL-1'
+        } else if (index === 2){
+            return 'https://github.com/mutaqinmi/aplikasi-spp'
+        } else {
+            return 'https://github.com/mutaqinmi/aplikasi-jurusan-jsver'
+        }
+    }
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+    return <div className="h-screen pl-16 flex w-full snap-start snap-always">
+        <div className='relative h-screen w-auto aspect-square'>
+            {/* <Image src="/image2.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-screen w-auto aspect-square object-cover saturate-0 opacity-50'/> */}
+            <button className='absolute bottom-8 right-8 flex gap-4 items-center justify-center transition ease-in-out duration-300 hover:translate-x-2' onClick={() => {location.href = source()}}>
+                <span className='text-black uppercase tracking-widest'>View Project</span>
+                <ArrowRight className='text-black'/>
+            </button>
+        </div>
+        <div className='relative pr-16 w-full'>
+            <h1 className={`absolute bottom-52 -right-36 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>Portfolio</h1>
+            <div className='-ml-32 mt-20 w-full'>
+                <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Portfolio</h2>
+                <h1 className='text-6xl font-bold mt-2'>Unveils an<br/><span className={`text-9xl ${windsong.className}`}>Arts</span></h1>
+                <div className='border-b-8 border-orange-500 w-40 mt-8'></div>
+            </div>
+            <div className='ml-24 mt-20'>
+                <div>
+                    <button className={`transition ease-in-out hover:text-orange-500 duration-300 p-2 tracking-widest text-xl ${index === 0 ? 'text-orange-500 border-b-4 border-orange-500 font-bold' : 'border-none text-xl text-slate-500 font-normal'}`} onClick={() => {setIndex(0)}}>01</button>
+                    <button className={`transition ease-in-out hover:text-orange-500 duration-300 p-2 tracking-widest text-xl ${index === 1 ? 'text-orange-500 border-b-4 border-orange-500 font-bold' : 'border-none text-xl text-slate-500 font-normal'}`} onClick={() => {setIndex(1)}}>02</button>
+                    <button className={`transition ease-in-out hover:text-orange-500 duration-300 p-2 tracking-widest text-xl ${index === 2 ? 'text-orange-500 border-b-4 border-orange-500 font-bold' : 'border-none text-xl text-slate-500 font-normal'}`} onClick={() => {setIndex(2)}}>03</button>
+                    <button className={`transition ease-in-out hover:text-orange-500 duration-300 p-2 tracking-widest text-xl ${index === 3 ? 'text-orange-500 border-b-4 border-orange-500 font-bold' : 'border-none text-xl text-slate-500 font-normal'}`} onClick={() => {setIndex(3)}}>04</button>
+                </div>
+                <p className='mt-10'>{description()}</p>
+            </div>
+        </div>
+    </div>
+}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+function Skills(){
+    return <div className="h-screen pl-16 flex w-full snap-start snap-always">
+        <div className='h-screen w-auto aspect-square object-cover relative'>
+            <div className='w-10/12 absolute top-1/2 -translate-y-1/2 left-16 flex flex-col gap-y-4'>
+                <Chart label='HTML & CSS' value={85} color='bg-blue-200'/>
+                <Chart label='JavaScript' value={75} color='bg-red-200'/>
+                <Chart label='Python' value={60} color='bg-orange-200'/>
+                <Chart label='PHP' value={65} color='bg-purple-200'/>
+                <Chart label='Flutter' value={70} color='bg-green-200'/>
+            </div>
+        </div>
+        <div className='relative pr-16 w-full'>
+            <h1 className={`absolute bottom-28 -right-12 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>Skills</h1>
+            <div className='-ml-24 mt-20 w-full'>
+                <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Skills</h2>
+                <h1 className='text-6xl font-bold mt-2'>Skill Showcase of My Expertise</h1>
+                <div className='border-b-8 border-orange-500 w-40 mt-8'></div>
+            </div>
+            <div className='ml-16 mt-28'>
+                <h3 className='uppercase tracking-widest tracking font-semibold text-orange-500'>Great works, born of talent</h3>
+                <p className='mt-10'>I am capable of creating and developing web applications using several frameworks such as React, Fastify, Django, and Laravel. In addition, I am also a little familiar with Flutter and desktop applications with C#. In addition, I can also understand Figma, Adobe Illustrator, and Blender.</p>
+            </div>
+        </div>
+    </div>
+}
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+function Chart(props: {label: string; value: number; color: string}){
+    return <div className='w-5/6'>
+        <div className={`h-8 rounded-full relative ${props.color}`} style={{width: `${props.value}%`}}>
+            <p className='text-nowrap text-sm absolute top-1/2 -translate-y-1/2 right-4'>{`${props.value}%`}</p>
+        </div>
+        <p className='text-nowrap mt-1 text-sm'>{props.label}</p>
+    </div>
+}
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+function Contact(){
+    const year = new Date().getFullYear();
+    return <div className="h-screen pl-16 flex w-full snap-start snap-always">
+        <div className='relative h-screen w-auto aspect-square'>
+            <Image src="/image-footer.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-screen w-auto aspect-square object-cover saturate-0 opacity-50'/>
+            <p className='absolute bottom-8 left-10'>&#169; {year} by <span className='underline'>mutaqinmi</span></p>
+        </div>
+        <div className='relative pr-16 w-full'>
+            <h1 className={`absolute bottom-44 -right-24 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>Contact</h1>
+            <div className='-ml-24 mt-20 w-full'>
+                <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Contact Me</h2>
+                <h1 className='text-6xl font-bold mt-2'>Let's Be Friend!</h1>
+                <div className='border-b-8 border-orange-500 w-40 mt-8'></div>
+            </div>
+            <div className='ml-24 mt-20'>
+                <h3 className='uppercase tracking-widest tracking font-semibold text-orange-500'>Information</h3>
+                <div className='mt-10 flex flex-col gap-8'>
+                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://instagram.com/mutaqinmi'}}>
+                        <InstagramLogo size={30}/>
+                        <p>@mutaqinmi</p>
+                    </button>
+                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://wa.me/6285155114492'}}>
+                        <WhatsappLogo size={30}/>
+                        <p>(+62) 851 - 5511 - 4492</p>
+                    </button>
+                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'mailto:mutaqinmi2586@gmail.com'}}>
+                        <Envelope size={30}/>
+                        <p>mutaqinmi2586@gmail.com</p>
+                    </button>
+                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://github.com/mutaqinmi'}}>
+                        <GithubLogo size={30}/>
+                        <p>mutaqinmi</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+function Sidenav(){
+    const [scrollY, setScrollY] = useState(0);
+    const [screenHeight, setScreenHeight] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+            setScreenHeight(window.innerHeight);
+        };
+
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    return <div className="h-screen w-16 bg-white fixed md:flex items-center justify-center hidden">
+        <div className="flex gap-1 flex-col">
+            <Dot active={scrollY + screenHeight >= screenHeight * 1 && scrollY < screenHeight * 1 ? true : false} click={() => {window.scrollTo(0, 0)}}/>
+            <Dot active={scrollY + screenHeight >= screenHeight * 2 && scrollY < screenHeight * 2 ? true : false} click={() => {window.scrollTo(0, screenHeight * 1)}}/>
+            <Dot active={scrollY + screenHeight >= screenHeight * 3 && scrollY < screenHeight * 3 ? true : false} click={() => {window.scrollTo(0, screenHeight * 2)}}/>
+            <Dot active={scrollY + screenHeight >= screenHeight * 4 && scrollY < screenHeight * 4 ? true : false} click={() => {window.scrollTo(0, screenHeight * 3)}}/>
+        </div>
+    </div>
+}
+
+function Dot(props: {active: boolean; click?: () => void}){
+    return <div className={`w-4 h-4 rounded-full ${props.active ? "bg-orange-500 border-none" : "bg-white border-2 border-black"}`} onClick={props.click}></div>
 }
