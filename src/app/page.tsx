@@ -22,7 +22,7 @@ function About(){
             <div className='h-52 w-52 absolute rounded-full bg-slate-300 bottom-12 right-12'></div>
         </div>
         <div className='relative pr-16 w-full'>
-            <h1 className={`absolute bottom-28 -right-12 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>About</h1>
+            <h1 className={`absolute bottom-28 -right-12 rotate-90 text-9xl uppercase opacity-15 -z-10 ${anton.className}`}>About</h1>
             <div className='-ml-24 mt-20 w-full'>
                 <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Hi, Everyone! I'm</h2>
                 <h1 className='text-6xl font-bold mt-2'>Muhammad Ilham Mutaqin</h1>
@@ -69,17 +69,40 @@ function Portfolio(){
             return 'https://github.com/mutaqinmi/aplikasi-jurusan-jsver'
         }
     }
+    const image = () => {
+        if(index === 0){
+            return <div>
+                <Image src="/espw-1.png" width={0} height={0} alt='eSPW' unoptimized className='h-auto w-52 object-cover absolute top-1/2 -translate-y-64 left-24 z-10 shadow-2xl shadow-slate-400 rounded-3xl'/>
+                <Image src="/espw-2.png" width={0} height={0} alt='eSPW' unoptimized className='h-auto w-52 object-cover absolute top-1/2 -translate-y-60 left-52 shadow-2xl shadow-slate-400 rounded-3xl'/>
+            </div>  
+        } else if (index === 1){
+            return <div>
+                <div className='w-36 h-36 rounded-full bg-blue-200 absolute top-56 left-14'></div>
+                <div className='w-80 h-40 bg-red-200 absolute top-72 left-32'></div>
+            </div>
+        } else if (index === 2){
+            return <div>
+                <div className='w-36 h-36 rounded-full bg-blue-200 absolute top-72 left-14'></div>
+                <div className='w-80 h-40 bg-red-200 absolute top-56 left-32'></div>
+            </div>
+        } else {
+            return <div>
+                <div className='w-36 h-36 rounded-full bg-blue-200 absolute top-56 left-14'></div>
+                <div className='w-80 h-40 bg-red-200 absolute top-72 left-32'></div>
+            </div>
+        }
+    }
 
     return <div className="h-screen pl-16 flex w-full snap-start snap-always">
         <div className='relative h-screen w-auto aspect-square'>
-            {/* <Image src="/image2.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-screen w-auto aspect-square object-cover saturate-0 opacity-50'/> */}
+            {image()}
             <button className='absolute bottom-8 right-8 flex gap-4 items-center justify-center transition ease-in-out duration-300 hover:translate-x-2' onClick={() => {location.href = source()}}>
                 <span className='text-black uppercase tracking-widest'>View Project</span>
                 <ArrowRight className='text-black'/>
             </button>
         </div>
         <div className='relative pr-16 w-full'>
-            <h1 className={`absolute bottom-52 -right-36 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>Portfolio</h1>
+            <h1 className={`absolute bottom-52 -right-36 rotate-90 text-9xl uppercase opacity-15 -z-10 ${anton.className}`}>Portfolio</h1>
             <div className='-ml-32 mt-20 w-full'>
                 <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Portfolio</h2>
                 <h1 className='text-6xl font-bold mt-2'>Unveils an<br/><span className={`text-9xl ${windsong.className}`}>Arts</span></h1>
@@ -110,7 +133,7 @@ function Skills(){
             </div>
         </div>
         <div className='relative pr-16 w-full'>
-            <h1 className={`absolute bottom-28 -right-12 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>Skills</h1>
+            <h1 className={`absolute bottom-28 -right-12 rotate-90 text-9xl uppercase opacity-15 -z-10 ${anton.className}`}>Skills</h1>
             <div className='-ml-24 mt-20 w-full'>
                 <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Skills</h2>
                 <h1 className='text-6xl font-bold mt-2'>Skill Showcase of My Expertise</h1>
@@ -141,7 +164,7 @@ function Contact(){
             <p className='absolute bottom-8 left-10'>&#169; {year} by <span className='underline'>mutaqinmi</span></p>
         </div>
         <div className='relative pr-16 w-full'>
-            <h1 className={`absolute bottom-44 -right-24 rotate-90 text-9xl uppercase opacity-15 ${anton.className}`}>Contact</h1>
+            <h1 className={`absolute bottom-44 -right-24 rotate-90 text-9xl uppercase opacity-15 -z-10 ${anton.className}`}>Contact</h1>
             <div className='-ml-24 mt-20 w-full'>
                 <h2 className='tracking-widest uppercase font-semibold text-orange-500'>Contact Me</h2>
                 <h1 className='text-6xl font-bold mt-2'>Let's Be Friend!</h1>
