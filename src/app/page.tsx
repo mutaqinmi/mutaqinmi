@@ -2,7 +2,7 @@
 import { anton, windsong } from './fonts';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { InstagramLogo, Envelope, GithubLogo, ArrowRight, WhatsappLogo } from '@phosphor-icons/react';
+import { InstagramLogo, Envelope, GithubLogo, ArrowRight, WhatsappLogo, ImageBroken } from '@phosphor-icons/react';
 
 export default function Page(){
     return <>
@@ -15,7 +15,7 @@ export default function Page(){
 }
 
 function About(){
-    return <div className="h-screen relative w-screen snap-start snap-always md:flex">
+    return <div className="h-screen relative w-screen snap-start snap-always md:flex md:pl-16">
         <h1 className={`absolute top-1/2 -translate-y-1/2 -right-12 rotate-90 text-9xl uppercase opacity-10 md:opacity-15 -z-10 ${anton.className}`}>About</h1>
         <div className='h-full w-full md:w-1/2 aspect-square object-cover flex items-center justify-center relative'>
             <Image src="/image-header.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-1/2 md:h-3/4 w-60 aspect-square object-cover rounded-full'/>
@@ -81,21 +81,21 @@ function Portfolio(){
                     <Image src="/espw-2.png" width={0} height={0} alt='eSPW' unoptimized className='h-auto w-44 object-cover shadow-2xl shadow-grey-500 rounded-3xl absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/3'/>
                 </div>
             case 1:
-                return <div></div>
+                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Pratinjau tidak tersedia!</span></div>
             case 2:
-                return <div></div>
+                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Pratinjau tidak tersedia!</span></div>
             case 3:
-                return <div></div>
+                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Pratinjau tidak tersedia!</span></div>
         }
     }
 
-    return <div className="h-screen w-screen relative snap-start snap-always md:flex">
+    return <div className="h-screen w-screen relative snap-start snap-always md:flex md:pl-16">
         <h1 className={`absolute top-1/2 -translate-y-1/2 -right-36 rotate-90 text-9xl uppercase opacity-10 md:opacity-15 -z-10 ${anton.className}`}>Portfolio</h1>
-        <div className='h-full w-full'>
+        <div className='h-full w-full flex justify-center items-center'>
             {image()}
         </div>
         <div className='absolute md:relative top-0 h-full w-full p-8 z-50'>
-            <div className='w-full md:-ml-28 md:mt-8'>
+            <div className='w-full md:-ml-14 md:mt-8'>
                 <h2 className='tracking-widest uppercase font-semibold text-orange-500 text-sm'>Portfolio</h2>
                 <h1 className='text-4xl md:text-6xl font-bold mt-2'>Unveils an<br/><span className={`text-7xl md:text-9xl ${windsong.className}`}>Arts</span></h1>
                 <div className='border-b-8 border-orange-500 w-24 mt-4'></div>
@@ -207,12 +207,12 @@ function Sidenav(){
         };
     }, []);
 
-    return <div className="h-screen w-16 bg-white fixed md:flex items-center justify-center hidden">
+    return <div className="h-screen w-16 bg-white fixed md:flex items-center justify-center hidden z-50">
         <div className="flex gap-1 flex-col">
-            <Dot active={scrollY + screenHeight >= screenHeight * 1 && scrollY < screenHeight * 1 ? true : false} click={() => {window.scrollTo(0, 0)}}/>
-            <Dot active={scrollY + screenHeight >= screenHeight * 2 && scrollY < screenHeight * 2 ? true : false} click={() => {window.scrollTo(0, screenHeight * 1)}}/>
-            <Dot active={scrollY + screenHeight >= screenHeight * 3 && scrollY < screenHeight * 3 ? true : false} click={() => {window.scrollTo(0, screenHeight * 2)}}/>
-            <Dot active={scrollY + screenHeight >= screenHeight * 4 && scrollY < screenHeight * 4 ? true : false} click={() => {window.scrollTo(0, screenHeight * 3)}}/>
+            <Dot active={scrollY + screenHeight >= screenHeight * 1 && scrollY < screenHeight * 1 ? true : false} click={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}/>
+            <Dot active={scrollY + screenHeight >= screenHeight * 2 && scrollY < screenHeight * 2 ? true : false} click={() => {window.scrollTo({top: screenHeight * 1, behavior: 'smooth'})}}/>
+            <Dot active={scrollY + screenHeight >= screenHeight * 3 && scrollY < screenHeight * 3 ? true : false} click={() => {window.scrollTo({top: screenHeight * 2, behavior: 'smooth'})}}/>
+            <Dot active={scrollY + screenHeight >= screenHeight * 4 && scrollY < screenHeight * 4 ? true : false} click={() => {window.scrollTo({top: screenHeight * 3, behavior: 'smooth'})}}/>
         </div>
     </div>
 }
