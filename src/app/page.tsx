@@ -2,7 +2,7 @@
 import { anton, windsong } from './fonts';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { InstagramLogo, Envelope, GithubLogo, ArrowRight, WhatsappLogo, ImageBroken } from '@phosphor-icons/react';
+import { InstagramLogo, Envelope, GithubLogo, ArrowRight, WhatsappLogo, ImageBroken, LinkedinLogo } from '@phosphor-icons/react';
 
 export default function Page(){
     return <>
@@ -16,7 +16,7 @@ export default function Page(){
 
 function About(){
     return <div className="h-screen relative w-screen snap-start snap-always md:flex md:pl-16">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-12 rotate-90 text-9xl uppercase opacity-10 md:opacity-15 -z-10 ${anton.className}`}>About</h1>
+        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-12 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>About</h1>
         <div className='h-full w-full md:w-1/2 aspect-square object-cover flex items-center justify-center relative'>
             <Image src="/image-header.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-1/2 md:h-3/4 w-60 aspect-square object-cover rounded-full'/>
             <div className='h-24 w-24 absolute rounded-full bg-orange-200 top-48 md:top-16 left-24 md:left-48'></div>
@@ -32,12 +32,12 @@ function About(){
                 <h3 className='uppercase tracking-widest tracking font-semibold text-orange-500 text-sm'>Introducing</h3>
                 <p className='mt-4 md:mt-8 text-sm'>Proficient in developing websites and Android applications. Also, interested in the world of game development and design.</p>
                 <div className='mt-8 flex items-center gap-5'>
-                    <button className='border-black rounded-md px-4 py-2 tracking-wider transition ease-in-out hover:bg-black hover:text-white duration-300 text-sm' style={{border: "1px solid"}}>Download CV</button>
+                    <button className='border-black rounded-md px-4 py-2 tracking-wider transition ease-in-out hover:text-orange-500 duration-300 text-sm' style={{border: "1px solid"}}>Download CV</button>
                     <div className='border-black h-6' style={{borderLeft: ".5px solid"}}></div>
                     <div className='flex gap-5'>
-                        <InstagramLogo size={25} weight='light' className='transition ease-in-out hover:scale-110 duration-300' onClick={() => {location.href = 'https://instagram.com/mutaqinmi'}}/>
-                        <Envelope size={25} weight='light' className='transition ease-in-out hover:scale-110 duration-300' onClick={() => {location.href = 'mailto:mutaqinmi2586@gmail.com'}}/>
-                        <GithubLogo size={25} weight='light' className='transition ease-in-out hover:scale-110 duration-300' onClick={() => {location.href = 'https://github.com/mutaqinmi'}}/>
+                        <LinkedinLogo size={25} weight='light' className='transition ease-in-out hover:scale-110 duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://linkedin.com/in/mutaqinmi'}}/>
+                        <Envelope size={25} weight='light' className='transition ease-in-out hover:scale-110 duration-300 hover:text-orange-500' onClick={() => {location.href = 'mailto:mutaqinmi2586@gmail.com'}}/>
+                        <GithubLogo size={25} weight='light' className='transition ease-in-out hover:scale-110 duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://github.com/mutaqinmi'}}/>
                     </div>
                 </div>
             </div>
@@ -81,16 +81,16 @@ function Portfolio(){
                     <Image src="/espw-2.png" width={0} height={0} alt='eSPW' unoptimized className='h-auto w-44 object-cover shadow-2xl shadow-grey-500 rounded-3xl absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/3'/>
                 </div>
             case 1:
-                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Pratinjau tidak tersedia!</span></div>
+                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Preview not available!</span></div>
             case 2:
-                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Pratinjau tidak tersedia!</span></div>
+                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Preview not available!</span></div>
             case 3:
-                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Pratinjau tidak tersedia!</span></div>
+                return <div className='w-44 h-44 bg-blue-200 rounded-full flex flex-col items-center justify-center p-8'><ImageBroken size={32}/><span className='text-sm text-center mt-2'>Preview not available!</span></div>
         }
     }
 
     return <div className="h-screen w-screen relative snap-start snap-always md:flex md:pl-16">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-36 rotate-90 text-9xl uppercase opacity-10 md:opacity-15 -z-10 ${anton.className}`}>Portfolio</h1>
+        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-36 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>Portfolio</h1>
         <div className='h-full w-full flex justify-center items-center'>
             {image()}
         </div>
@@ -119,7 +119,7 @@ function Portfolio(){
 
 function Skills(){
     return <div className="h-screen w-screen snap-start snap-always md:flex relative md:pl-16">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-12 rotate-90 text-9xl uppercase opacity-10 md:opacity-15 -z-10 ${anton.className}`}>Skills</h1>
+        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-12 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>Skills</h1>
         <div className='h-full w-full md:w-1/2 flex justify-center items-center flex-col gap-y-4'>
             <Chart label='HTML & CSS' value={85} color='bg-blue-200'/>
             <Chart label='JavaScript' value={75} color='bg-red-200'/>
@@ -153,10 +153,10 @@ function Chart(props: {label: string; value: number; color: string}){
 function Contact(){
     const year = new Date().getFullYear();
     return <div className="h-screen md:flex md:pl-16 w-screen snap-start snap-always relative">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-24 rotate-90 text-9xl uppercase opacity-10 md:opacity-15 -z-10 ${anton.className}`}>Contact</h1>
+        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-24 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>Contact</h1>
         <div className='relative h-full w-full'>
             <Image src="/image-footer.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-screen w-auto aspect-square object-cover saturate-0 opacity-50 hidden md:flex'/>
-            <p className='absolute bottom-8 left-8'>&#169; {year} by <span className='underline'>mutaqinmi</span></p>
+            <p className='absolute bottom-8 left-8'>&#169; {year} by <span className='underline'>Muhammad Ilham Mutaqin</span></p>
         </div>
         <div className='absolute top-0 pr-16 w-full h-full p-8 md:relative'>
             <div className='w-full md:-ml-28'>
@@ -167,13 +167,9 @@ function Contact(){
             <div className='absolute bottom-36 md:bottom-20 left-8 md:left-36 text-sm'>
                 <h3 className='uppercase tracking-widest tracking font-semibold text-orange-500'>Information</h3>
                 <div className='mt-10 flex flex-col gap-8'>
-                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://instagram.com/mutaqinmi'}}>
-                        <InstagramLogo size={30}/>
-                        <p>@mutaqinmi</p>
-                    </button>
-                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://wa.me/6285155114492'}}>
-                        <WhatsappLogo size={30}/>
-                        <p>(+62) 851 - 5511 - 4492</p>
+                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://linkedin.com/in/mutaqinmi'}}>
+                        <LinkedinLogo size={30}/>
+                        <p>Muhammad Ilham Mutaqin</p>
                     </button>
                     <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'mailto:mutaqinmi2586@gmail.com'}}>
                         <Envelope size={30}/>
@@ -182,6 +178,14 @@ function Contact(){
                     <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://github.com/mutaqinmi'}}>
                         <GithubLogo size={30}/>
                         <p>mutaqinmi</p>
+                    </button>
+                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://wa.me/6285155114492'}}>
+                        <WhatsappLogo size={30}/>
+                        <p>(+62) 851 - 5511 - 4492</p>
+                    </button>
+                    <button className='flex items-center justify-start gap-4 transition ease-in-out duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://instagram.com/mutaqinmi'}}>
+                        <InstagramLogo size={30}/>
+                        <p>@mutaqinmi</p>
                     </button>
                 </div>
             </div>
