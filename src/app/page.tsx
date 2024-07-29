@@ -17,7 +17,7 @@ export default function Page(){
 
 function About(){
     return <div className="h-screen relative w-screen snap-start snap-always md:flex md:pl-16">
-        <div className='h-full w-full md:w-1/2 aspect-square object-cover flex items-center justify-center relative'>
+        <div className='h-full w-full md:w-1/2 aspect-square object-cover hidden md:flex items-center justify-center relative'>
             <Image src="/image-header.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-1/2 md:h-3/4 w-60 aspect-square object-cover rounded-full'/>
             <div className='h-24 w-24 absolute rounded-full bg-orange-200 top-48 md:top-16 left-24 md:left-48'></div>
             <div className='h-36 w-36 absolute rounded-full bg-slate-300 bottom-48 md:bottom-16 right-16 md:right-36'></div>
@@ -90,7 +90,7 @@ function Portfolio(){
     }
 
     return <div className="h-screen w-screen relative snap-start snap-always md:flex md:pl-16">
-        <div className='h-full w-full flex justify-center items-center'>
+        <div className='h-full w-full hidden md:flex justify-center items-center'>
             {image()}
         </div>
         <div className='absolute md:relative top-0 h-full w-full p-8 z-50'>
@@ -118,7 +118,7 @@ function Portfolio(){
 
 function Skills(){
     return <div className="h-screen w-screen snap-start snap-always md:flex relative md:pl-16">
-        <div className='h-full w-full md:w-1/2 flex justify-center items-center flex-col gap-y-4'>
+        <div className='h-full w-full md:w-1/2 hidden md:flex justify-center items-center flex-col gap-y-4'>
             <Chart label='HTML & CSS' value={85} color='bg-blue-200'/>
             <Chart label='JavaScript' value={75} color='bg-red-200'/>
             <Chart label='Python' value={60} color='bg-orange-200'/>
