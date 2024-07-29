@@ -1,8 +1,9 @@
 'use client'
-import { anton, windsong } from './fonts';
-import { useEffect, useState } from 'react';
+import { windsong } from './fonts';
+import { useState } from 'react';
 import Image from 'next/image';
 import { InstagramLogo, Envelope, GithubLogo, ArrowRight, WhatsappLogo, ImageBroken, LinkedinLogo } from '@phosphor-icons/react';
+import Sidenav from '@/components/sidenav';
 
 export default function Page(){
     return <>
@@ -16,7 +17,6 @@ export default function Page(){
 
 function About(){
     return <div className="h-screen relative w-screen snap-start snap-always md:flex md:pl-16">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-12 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>About</h1>
         <div className='h-full w-full md:w-1/2 aspect-square object-cover flex items-center justify-center relative'>
             <Image src="/image-header.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-1/2 md:h-3/4 w-60 aspect-square object-cover rounded-full'/>
             <div className='h-24 w-24 absolute rounded-full bg-orange-200 top-48 md:top-16 left-24 md:left-48'></div>
@@ -90,7 +90,6 @@ function Portfolio(){
     }
 
     return <div className="h-screen w-screen relative snap-start snap-always md:flex md:pl-16">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-36 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>Portfolio</h1>
         <div className='h-full w-full flex justify-center items-center'>
             {image()}
         </div>
@@ -119,7 +118,6 @@ function Portfolio(){
 
 function Skills(){
     return <div className="h-screen w-screen snap-start snap-always md:flex relative md:pl-16">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-12 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>Skills</h1>
         <div className='h-full w-full md:w-1/2 flex justify-center items-center flex-col gap-y-4'>
             <Chart label='HTML & CSS' value={85} color='bg-blue-200'/>
             <Chart label='JavaScript' value={75} color='bg-red-200'/>
@@ -153,7 +151,6 @@ function Chart(props: {label: string; value: number; color: string}){
 function Contact(){
     const year = new Date().getFullYear();
     return <div className="h-screen md:flex md:pl-16 w-screen snap-start snap-always relative">
-        <h1 className={`absolute top-1/2 -translate-y-1/2 -right-24 rotate-90 text-9xl uppercase opacity-5 -z-10 ${anton.className}`}>Contact</h1>
         <div className='relative h-full w-full'>
             <Image src="/image-footer.jpg" width={0} height={0} alt='Muhammad Ilham Mutaqin' unoptimized className='h-screen w-auto aspect-square object-cover saturate-0 opacity-50 hidden md:flex'/>
             <p className='absolute bottom-8 left-8'>&#169; {year} by <span className='underline'>Muhammad Ilham Mutaqin</span></p>
@@ -191,36 +188,4 @@ function Contact(){
             </div>
         </div>
     </div>
-}
-
-function Sidenav(){
-    const [scrollY, setScrollY] = useState(0);
-    const [screenHeight, setScreenHeight] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-            setScreenHeight(window.innerHeight);
-        };
-
-        handleScroll();
-
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    return <div className="h-screen w-16 bg-white fixed md:flex items-center justify-center hidden z-50">
-        <div className="flex gap-1 flex-col">
-            <Dot active={scrollY + screenHeight >= screenHeight * 1 && scrollY < screenHeight * 1 ? true : false} click={() => {window.scrollTo({top: 0, behavior: 'smooth'})}}/>
-            <Dot active={scrollY + screenHeight >= screenHeight * 2 && scrollY < screenHeight * 2 ? true : false} click={() => {window.scrollTo({top: screenHeight * 1, behavior: 'smooth'})}}/>
-            <Dot active={scrollY + screenHeight >= screenHeight * 3 && scrollY < screenHeight * 3 ? true : false} click={() => {window.scrollTo({top: screenHeight * 2, behavior: 'smooth'})}}/>
-            <Dot active={scrollY + screenHeight >= screenHeight * 4 && scrollY < screenHeight * 4 ? true : false} click={() => {window.scrollTo({top: screenHeight * 3, behavior: 'smooth'})}}/>
-        </div>
-    </div>
-}
-
-function Dot(props: {active: boolean; click?: () => void}){
-    return <div className={`w-4 h-4 rounded-full ${props.active ? "bg-orange-500 border-none" : "bg-white border-2 border-black"}`} onClick={props.click}></div>
 }
