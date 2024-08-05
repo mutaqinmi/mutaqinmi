@@ -32,7 +32,9 @@ function About(){
                 <h3 className='uppercase tracking-widest tracking font-semibold text-orange-500 text-sm'>Introducing</h3>
                 <p className='mt-4 md:mt-8 text-sm'>Proficient in developing websites and Android applications. Also, interested in the world of game development and design.</p>
                 <div className='mt-8 flex items-center gap-5'>
-                    <button className='border-black rounded-md px-4 py-2 tracking-wider transition ease-in-out hover:text-orange-500 duration-300 text-sm' style={{border: "1px solid"}}>Download CV</button>
+                    <form action="/CV_Muhammad Ilham Mutaqin.pdf">
+                        <button className='border-black rounded-md px-4 py-2 tracking-wider transition ease-in-out hover:text-orange-500 duration-300 text-sm' style={{border: "1px solid"}}>Download CV</button>
+                    </form>
                     <div className='border-black h-6' style={{borderLeft: ".5px solid"}}></div>
                     <div className='flex gap-5'>
                         <LinkedinLogo size={25} weight='light' className='transition ease-in-out hover:scale-110 duration-300 hover:text-orange-500' onClick={() => {location.href = 'https://linkedin.com/in/mutaqinmi'}}/>
