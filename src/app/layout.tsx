@@ -1,5 +1,10 @@
-import { montserrat } from './fonts';
 import './globals.css';
+import { Montserrat } from 'next/font/google';
+
+export const montserrat = Montserrat({
+    subsets: ['latin'],
+    display: 'swap',
+})
 
 export const metadata = {
   title: 'Muhammad Ilham Mutaqin',
@@ -14,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`snap-y snap-mandatory ${montserrat.className}`}>
+    <html lang="en" className={`${montserrat.className}`}>
       <body>{children}</body>
     </html>
   )
