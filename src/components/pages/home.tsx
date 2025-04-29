@@ -9,7 +9,7 @@ export default function Home(){
         <span className='uppercase absolute right-4 top-4 text-9xl leading-none font-bold text-gray-100 select-none -z-10 hidden md:flex'><Sparkle weight='fill'/></span>
         <span className='uppercase absolute left-2 bottom-2 text-8xl leading-none font-bold text-gray-100 select-none -z-10 hidden md:flex'>about</span>
         <div className='flex md:flex-row flex-col md:gap-20 gap-10 md:items-stretch items-center'>
-            <Image src={"/profile-picture.jpg"} width={1000} height={1000} alt='Muhammad Ilham Mutaqin' className='md:w-80 w-32 md:h-[30rem] h-48 self-center object-cover shadow-[-35px_-35px_0px_rgba(0,0,0,1)] shadow-amber-400 rounded-lg'/>
+            <Image src={"https://cdn.mutaqin.me/files/profile-picture.jpg"} width={1000} height={1000} alt='Muhammad Ilham Mutaqin' className='md:w-80 w-32 md:h-[30rem] h-48 self-center object-cover shadow-[-35px_-35px_0px_rgba(0,0,0,1)] shadow-amber-400 rounded-lg'/>
             <div className='md:w-[30rem] w-5/6 flex flex-col items-end justify-between'>
                 <div>
                     <p className='md:text-normal text-sm'>Hi, everyone! I&apos;m ...</p>

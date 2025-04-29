@@ -58,7 +58,7 @@ const projects = [
     {
         name: "Untolded",
         description: "Untolded is a 2D platformer story game about a high school student unraveling a mystery hidden within their school.",
-        link: "https://untolded.mutaqin.me/",
+        link: "https://cdn.mutaqin.me/files/untolded_release_apk_v1.4.2.apk",
         platform: {
             android: true,
             web: false,
@@ -68,7 +68,7 @@ const projects = [
     {
         name: "Pop It!",
         description: "Pop It! is a casual and fun game where players collect bubbles scattered throughout the level, aiming for the highest score while enjoying a simple yet satisfying gameplay experience.",
-        link: "https://popit.mutaqin.me/",
+        link: "https://cdn.mutaqin.me/files/pop-it!.zip",
         platform: {
             android: false,
             web: false,
